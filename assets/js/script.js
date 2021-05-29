@@ -6,8 +6,8 @@ function getWeather() {
 
     //fetch api 
     fetch(
-        "https://api.openweathermap.org/data/2.5/forecast?q=" +
-        searchCity +
+        "https://api.openweathermap.org/data/2.5/forecast?q=london" +
+        //searchCity +
         "&appid=8f62257571888eedbb0ada9d2502e1fa"
     )
         .then(function (response) {
@@ -16,24 +16,24 @@ function getWeather() {
         .then(function (response) {
             console.log("api response", response);
         });
-}
+};
 $("#button-addon2").on("click", function () {
     getweather();
 });
-$("#recentSearches").on("click", function (btn) {
-    var clickedRecentCIty = $(this).val();
+$("#recentSearches").on("click", ".btn", function (btn) {
+    var clickedRecentCity = $(this).val();
     $("#searchCity").val(clickedRecentCity);
     getWeather();
 });
 
 function saveRecent(cityName) {
-    var recentSearchesBtn = $("<input>", {
+    var recentSearchBtn = $("<input>", {
         type: "button",
         value: cityName,
         class: "btn btn-lg",
     });
-    $("#recentSearches").append(recentSearchesBtn);
-    var duplicate = verifyNoDup(cityame);
+    $("#recentSearches").append(recentSearchBtn);
+    var duplicate = verifyNoDup(cityName);
     console.log("are there any duplicates" + duplicate);
     if (!duplicate) {
         recentSearchArr.push(cityName)
@@ -51,3 +51,4 @@ function saveRecent(cityName) {
         }
     }
 }
+getWeather();
