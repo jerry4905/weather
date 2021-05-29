@@ -17,3 +17,37 @@ function getWeather() {
             console.log("api response", response);
         });
 }
+$("#button-addon2").on("click", function () {
+    getweather();
+});
+$("#recentSearches").on("click", function (btn) {
+    var clickedRecentCIty = $(this).val();
+    $("#searchCity").val(clickedRecentCity);
+    getWeather();
+});
+
+function saveRecent(cityName) {
+    var recentSearchesBtn = $("<input>", {
+        type: "button",
+        value: cityName,
+        class: "btn btn-lg",
+    });
+    $("#recentSearches").append(recentSearchesBtn);
+    var duplicate = verifyNoDup(cityame);
+    console.log("are there any duplicates" + duplicate);
+    if (!duplicate) {
+        recentSearchArr.push(cityName)
+        localStorage.setItem("recentCities", JSON.stringify(recentSearchArr));
+        return;
+    }
+
+    function verifyNoDup(cityName){
+        for(var i=0; i<recentSearchArr.length; i++) {
+            if (cityName === recentSearchArr[i] || cityName == "undefined") {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+}
