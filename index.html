@@ -1,47 +1,39 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" 
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
-              crossorigin="anonymous">
-       
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <title>Weather Forecast</title>
-    </head>
-    <body>
-        <main class="container-fluid p-0">
-            <div class="main-plate">
-                <div class="row pt-3">
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
-                            <input type="text" 
-                            class="form-control form-control-lg" 
-                            id="searchCity" 
-                            placeholder="Pheonix" 
-                            aria-label="Request username" 
-                            aria-describedby="button-addon2"
-                            />
-                            <button 
-                            class="btn btn-outline-light" 
-                            type="button" 
-                            id="button-addon2">Search</button>
+<!DOCTYPE html>
+<html lang="en">
 
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <h2 id="currently-in">Currently in:</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Weather Forecast</title>
+</head>
+
+<body>
+    <main class="container-fluid p-0">
+        <div class="main-plate">
+            <div class="row pt-3">
+                <div class="col-md-6">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg" id="searchCity" placeholder="Pheonix"
+                            aria-label="Request username" aria-describedby="button-addon2" />
+                        <button class="btn btn-outline-light" type="button" id="button-addon2">Search</button>
+
                     </div>
                 </div>
-                <div class="row">
+                <div class="col-md-3 text-center">
+                    <h2 id="currently-in">Currently in:</h2>
+                </div>
+            </div>
+            <div class="row">
 
-                    <div class="col-md-3">
-                        <p>search results</p>
-                    </div>
-                    <div class="col-md-3">
+                <div class="col-md-3">
+                    <p>search results</p>
+                </div>
+                <div class="col-md-3">
                     <h2 id="currentCity">Pheonix</h2>
                     <div class="card p-3">
                         <p id="currentHumidity">Humidity: 50%</p>
@@ -53,12 +45,8 @@
             <div class="row justify-content-between m-3 p-3">
                 <div class="col-xl-2 col-md-6 col-12">
                     <div class="card" id="futureDay1">
-                        <img
-                        src="assets/images/icon.png"
-                        class="card-img-top pt-4 pd-4"
-                        alt="Icon"
-                        id="futureDay1Icon"
-                        />
+                        <img src="assets/images/icon.png" class="card-img-top pt-4 pd-4" alt="Icon"
+                            id="futureDay1Icon" />
                         <div class="card-body">
                             <h5 class="card-title" id="futureDay1Temp">
                                 90°
@@ -67,17 +55,13 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Wind Speed;</li>
                             <li class="list-group-item">Humidity:</li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 col-12">
                     <div class="card" id="futureDay2">
-                        <img
-                        src="assets/images/icon.png"
-                        class="card-img-top pt-4 pd-4"
-                        alt="Icon"
-                        id="futureDay2Icon"
-                        />
+                        <img src="assets/images/icon.png" class="card-img-top pt-4 pd-4" alt="Icon"
+                            id="futureDay2Icon" />
                         <div class="card-body">
                             <h5 class="card-title" id="futureDay2Temp">
                                 90°
@@ -86,17 +70,13 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Wind Speed;</li>
                             <li class="list-group-item">Humidity:</li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 col-12">
                     <div class="card" id="futureDay3">
-                        <img
-                        src="assets/images/icon.png"
-                        class="card-img-top pt-4 pd-4"
-                        alt="Icon"
-                        id="futureDay3Icon"
-                        />
+                        <img src="assets/images/icon.png" class="card-img-top pt-4 pd-4" alt="Icon"
+                            id="futureDay3Icon" />
                         <div class="card-body">
                             <h5 class="card-title" id="futureDay3Temp">
                                 90°
@@ -105,17 +85,13 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Wind Speed;</li>
                             <li class="list-group-item">Humidity:</li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 col-12">
                     <div class="card" id="futureDay4">
-                        <img
-                        src="assets/images/icon.png"
-                        class="card-img-top pt-4 pd-4"
-                        alt="Icon"
-                        id="futureDay4Icon"
-                        />
+                        <img src="assets/images/icon.png" class="card-img-top pt-4 pd-4" alt="Icon"
+                            id="futureDay4Icon" />
                         <div class="card-body">
                             <h5 class="card-title" id="futureDay4Temp">
                                 90°
@@ -124,17 +100,13 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Wind Speed;</li>
                             <li class="list-group-item">Humidity:</li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
                 <div class="col-xl-2 col-md-6 col-12">
                     <div class="card" id="futureDay5">
-                        <img
-                        src="assets/images/icon.png"
-                        class="card-img-top pt-4 pd-4"
-                        alt="Icon"
-                        id="futureDay5Icon"
-                        />
+                        <img src="assets/images/icon.png" class="card-img-top pt-4 pd-4" alt="Icon"
+                            id="futureDay5Icon" />
                         <div class="card-body">
                             <h5 class="card-title" id="futureDay5Temp">
                                 90°
@@ -143,15 +115,18 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Wind Speed;</li>
                             <li class="list-group-item">Humidity:</li>
-                        </ul> 
+                        </ul>
                     </div>
                 </div>
 
-           
+
             </div>
-         </div>
-         
-        </main>
-        
-    </body>
-    </html>
+        </div>
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
