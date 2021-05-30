@@ -6,8 +6,8 @@ function getWeather() {
 
     //fetch api 
     fetch(
-        "https://api.openweathermap.org/data/2.5/forecast?q=london" +
-        //searchCity +
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+         searchCity +
         "&appid=8f62257571888eedbb0ada9d2502e1fa"
     )
         .then(function (response) {
@@ -18,7 +18,7 @@ function getWeather() {
         });
 };
 $("#button-addon2").on("click", function () {
-    getweather();
+    getWeather();
 });
 $("#recentSearches").on("click", ".btn", function (btn) {
     var clickedRecentCity = $(this).val();
@@ -34,7 +34,7 @@ function saveRecent(cityName) {
     });
     $("#recentSearches").append(recentSearchBtn);
     var duplicate = verifyNoDup(cityName);
-    console.log("are there any duplicates" + duplicate);
+    console.log("duplicates?" + duplicate);
     if (!duplicate) {
         recentSearchArr.push(cityName)
         localStorage.setItem("recentCities", JSON.stringify(recentSearchArr));
@@ -51,4 +51,4 @@ function saveRecent(cityName) {
         }
     }
 }
-getWeather();
+//getWeather();
