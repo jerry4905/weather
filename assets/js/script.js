@@ -1,5 +1,7 @@
 var recentSearchArr = [];
 
+//$(#recentSearches).Storage.getItem(recentCities);
+
 function getWeather() {
     var searchCity = $("#searchCity").val();
     saveRecent(searchCity);
@@ -25,6 +27,9 @@ $("#recentSearches").on("click", ".btn", function (btn) {
     $("#searchCity").val(clickedRecentCity);
     getWeather();
 });
+var displayResults = function(cityName) {
+    console.log(cityName)
+};
 
 function saveRecent(cityName) {
     var recentSearchBtn = $("<input>", {
@@ -50,5 +55,8 @@ function saveRecent(cityName) {
             }
         }
     }
+    displayResults();
 }
+
+
 //getWeather();
