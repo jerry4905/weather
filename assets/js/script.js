@@ -23,6 +23,11 @@ function getWeather() {
             let windspeed = response.wind.speed;
             let country = response.sys.country;
 
+            // The latitude and longitude are pulled from the first endpoint so they can be used as search parameters in the second enpoint (which gets the UV index and future forecase).
+            let lat = response.coord.lat;
+            let lon = response.coord.lon;
+            latitude = lat;
+            longitude = lon;
 
             $('#currentIcon').attr('src', 'https://openweathermap.org/img/wn/' + response.weather[0].icon + '@2x.png');
             $('#currentIcon').attr('style', 'height: 70px; width: 70px; margin-top: -8px;');
@@ -30,8 +35,26 @@ function getWeather() {
             $('#currentHumidity').text(`Humidity: ${humidity}%`);
             $('#currentWindSpeed').text(`Wind Speed: ${windspeed} MPH`);
 
+             // This function call gets the UV index and future forecast
+             getUvAndFutureWeather();
         });
 };
+
+function getUvAndFutureWeather() {
+       //fetch api 
+    fetch(
+        "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&exclude=minutely,hourly&appid=8f62257571888eedbb0ada9d2502e1fa"
+        
+    )
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (response) {
+            console.log("api response2", response);
+            
+
+
+        })}
 $("#button-addon2").on("click", function () {
     getWeather();
 });
