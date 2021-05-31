@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Weather Forecast</title>
+    <title>Weather Dashboard</title>
 </head>
 
 <body>
@@ -20,8 +21,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control form-control-lg" id="searchCity" placeholder="City"
-                        aria-label="Request username" aria-describedby="button-addon2" />
+                    <input class="form-control form-control-lg" id="searchCity" placeholder="City" />
                     <button class="btn btn-outline-dark" type="button" id="button-addon2">Search</button>
                 </div>
             </div>
@@ -38,17 +38,15 @@
                     <div class="col-12">
                         <h2 id="currentCity"></h2>
                         <p id="currentDate"></p>
-                        <p id="currentIcon"></p>
-                        <div class="card">
-                            <p id="currentTemp">Temp: 88°</p>
-                            <p id="currentWindSpeed">Wind Speed: 13mph </p>
-                            <p id="currentHumidity">Humidity: 50%</p>
-                            <p id="currentUvIndex">UV Index: .7</p>
-                        </div>
+                        <img id="currentIcon">
+                        <p id="currentTemp">Temp: 88°</p>
+                        <p id="currentWindSpeed">Wind Speed: 13mph </p>
+                        <p id="currentHumidity">Humidity: 50%</p>
+                        <p id="currentUvIndex">UV Index: .7</p>
                     </div>
                     <div class="col-2">
-                        <div class="card" id="futureDay1">
-                            6/1/2021
+                        <div class="card" id="futureCard1">
+                            <h2 id="fiveDayForecast"></h2>
                             <img src="assets/images/cloud.png" class="card-img-top pt-4 pd-4" alt="Icon"
                                 id="futureDay1Icon" />
                             <div class="card-body">
@@ -62,9 +60,9 @@
                             </ul>
                         </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
     </main>
