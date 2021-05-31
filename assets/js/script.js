@@ -51,7 +51,69 @@ function getUvAndFutureWeather() {
         })
         .then(function (response) {
             console.log("api response2", response);
+            // This logic determines what color the UV Index will be.
+            currentUvIndexVal = $('<span>');
+            if (currentUvIndex <= 3){
+                uvIndexVal.attr('class', 'badge badge-success');
+            } else if (currentUvIndex > 3 && currentUvIndex <= 6){
+                uvIndexVal.attr('class', 'badge badge-warning');
+            } else if (currentUvIndex > 6 && currentUvIndex <= 7){
+                uvIndexVal.attr('class', 'badge badge-warning');
+                uvIndexVal.attr('style', 'background-color: orange;');
+            } else if (currentUvIndex> 7 && currentUvIndex <= 10){
+                uvIndexVal.attr('class', 'badge badge-danger');
+            } else if (currentUvIndex >= 10){
+                uvIndexVal.attr('class', 'badge badge-danger');
+                uvIndexVal.attr('style', 'background-color: purple;');
+            }
+            $('#currentUvIndex').text(`UV Index: `);
+            currentUvIndexVal.text(currentUvIndex);
+            $('#currentUvIndex').append(currentUvIndexVal);
+
+            // This empties the forecastCards Div so it can be populated with new information every time this function is called.
+            $('#futureCards').empty();
+
+            fiveDayForecast = $('<h2>');
+            fiveDayForecast.text('5-Day Forecast:');
+            $('#futureCards').prepend(fiveDayForecast);
             
+            hrTag = $('<hr>');
+            $('#futureCards').prepend(hrTag);
+
+            // This iterates through the 5 forecast cards and populates each with information for the next 5 days.
+            for (let i = 1; i < 6; i++){
+                // Taken from the moment.js documentation, this converts the response.daily.dt value to a readable date.
+                let timestamp = moment.unix(response.daily[i].dt).format("MM/DD/YYYY");
+                // creates all of the elements in each of the forecast cards and gives the cards necessary attributes and values.
+                let forecastCardDiv = $('<div>');
+                let forecastCard = $('<div>');
+                let forecastDate = $('<h5>');
+                let forecastTemp = $('<p>');
+                let forecastHumidity = $('<p>');
+                let forecastIcon = $('<img>');
+                forecastCardDiv.attr('class', 'card text-white bg-primary mb-3');
+                forecastCardDiv.attr('style', 'max-width: 18rem; float: left; width: 180px; height: 235px; margin-right:10px;');
+                forecastCardDiv.attr('id', `card${i}`);
+                
+                forecastCard.attr('class', 'card-body');
+                forecastCardDiv.append(forecastCard);
+                
+                forecastDate.attr('class', 'card-title');
+
+                forecastDate.text(timestamp);
+                forecastIcon.attr('src', 'https://openweathermap.org/img/wn/' + response.daily[i].weather[0].icon + '@2x.png');
+                let forecastTempK = response.daily[i].temp.max;
+                let forecastTempF = ((forecastTempK - 273.15)*9/5) + 32;
+                forecastTemp.text(`Temp: ${forecastTempF.toFixed(1)} °F`);
+                forecastHumidity.text(`Humidity: ${response.daily[i].humidity}%`);
+                
+                forecastCard.append(forecastDate);
+                forecastCard.append(forecastIcon);
+                forecastCard.append(forecastTemp);
+                forecastCard.append(forecastHumidity);
+                
+                $('#futureCards').append(forecastCardDiv);   
+            }
 
 
         })}
